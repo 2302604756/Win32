@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="头文件\平台层">
+      <UniqueIdentifier>{ebf2ad8c-8c6b-4b7a-a834-4c6c7f4bc8f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\核心层">
+      <UniqueIdentifier>{0035299b-2123-49a9-8b35-566dd6d6d2d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\核心层">
+      <UniqueIdentifier>{d66c9c55-7a08-4a6a-be81-69904fe355ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\平台层">
+      <UniqueIdentifier>{c014d4d6-be0c-4069-86d7-4aa03d226c5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\渲染层">
+      <UniqueIdentifier>{0dfc06b9-94a9-4240-85e0-98782703c46d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\渲染层">
+      <UniqueIdentifier>{297cc1c9-5026-46b8-9021-0d57e24f193f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\几何">
+      <UniqueIdentifier>{97a01831-a170-4597-a3ad-d20a027cacba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\几何">
+      <UniqueIdentifier>{89f7681e-831d-4e85-8cca-fbd408794cc0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Begin.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GeometryBase.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h">
+      <Filter>头文件\平台层</Filter>
+    </ClInclude>
+    <ClInclude Include="App.h">
+      <Filter>头文件\核心层</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>头文件\核心层</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics.h">
+      <Filter>头文件\渲染层</Filter>
+    </ClInclude>
+    <ClInclude Include="Rasterizer.h">
+      <Filter>头文件\渲染层</Filter>
+    </ClInclude>
+    <ClInclude Include="Line.h">
+      <Filter>头文件\几何</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawSystem.h">
+      <Filter>头文件\几何</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="WinMain.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="window.cpp">
+      <Filter>源文件\平台层</Filter>
+    </ClCompile>
+    <ClCompile Include="App.cpp">
+      <Filter>源文件\核心层</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>源文件\核心层</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics.cpp">
+      <Filter>源文件\渲染层</Filter>
+    </ClCompile>
+    <ClCompile Include="Rasterizer.cpp">
+      <Filter>源文件\渲染层</Filter>
+    </ClCompile>
+    <ClCompile Include="Line.cpp">
+      <Filter>源文件\几何</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawSystem.cpp">
+      <Filter>源文件\几何</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
