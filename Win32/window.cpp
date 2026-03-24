@@ -1,5 +1,6 @@
 ﻿#include "Window.h"
 #include "App.h"
+#include "imgui_impl_win32.h"
 
 Window::Window(App& app, int width, int height, const wchar_t* name)
     : app(app)
@@ -39,21 +40,21 @@ HWND Window::GetHWND() const
 int Window::GetWidth() const
 {
     RECT rect;
-    GetWindowRect(hwnd, &rect);
+    GetClientRect(hwnd, &rect);
     return rect.right - rect.left;
 }
 
 int Window::GetHeight() const
 {
     RECT rect;
-    GetWindowRect(hwnd, &rect);
+    GetClientRect(hwnd, &rect);
     return rect.bottom - rect.top;
 }
 
 //消息分发
 //我们将SetUpProc作为该窗口的过程函数
 LRESULT CALLBACK Window::SetupProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
-{
+{  
     if (msg == WM_NCCREATE)
     {
         auto cs = reinterpret_cast<CREATESTRUCT*>(lParam);
@@ -71,15 +72,19 @@ LRESULT CALLBACK Window::SetupProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lP
 }
 
 LRESULT CALLBACK Window::ThunkProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
-{
+{   
     Window* wnd = reinterpret_cast<Window*>(
         GetWindowLongPtr(hwnd, GWLP_USERDATA));
 
     return wnd->HandleMsg(hwnd, msg, wParam, lParam);
 }
 
+extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
+
 LRESULT Window::HandleMsg(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
+    if (ImGui_ImplWin32_WndProcHandler(hwnd, msg, wParam, lParam))
+        return true;
     switch (msg)
     {
     case WM_CLOSE:
@@ -100,15 +105,21 @@ LRESULT Window::HandleMsg(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
         int y = HIWORD(lParam);
 
         app.input.OnMouseDown(x, y);
-        app.input.OnKeyDown(VK_LBUTTON); // 🔥缺的就是这个！
+        app.input.OnKeyDown(VK_LBUTTON); 
+        app.input.mouseClicked = true;
 
     }
     return 0;
 
-    case WM_LBUTTONUP:
+    case WM_LBUTTONUP: 
+    {
+        int x = LOWORD(lParam);
+        int y = HIWORD(lParam);
         app.input.OnKeyUp(VK_LBUTTON);
+        app.input.OnMouseUp(x, y);
+        app.input.mouseClicked = false;
         return 0;
-
+    }
     case WM_MOUSEMOVE:
     {
         int x = LOWORD(lParam);

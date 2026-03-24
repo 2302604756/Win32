@@ -4,6 +4,9 @@
 #include "Input.h"
 #include "DrawSystem.h"
 
+#include "ImGuiManager.h"
+
+
 class App
 {
 public:
@@ -18,9 +21,15 @@ public:
     void OnResize(int w, int h);
 
 public:
+    //pass
+    
     Window wnd;
     Graphics gfx;
+    GeometryPass gpfx;
     Input input;
     DrawSystem draw;
     bool running = true;
+    //用于控制绘制什么
+    DrawMode mode = DrawMode::Line;
+    ImGuiManager imgui;
 };

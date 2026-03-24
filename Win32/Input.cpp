@@ -27,6 +27,11 @@ void Input::OnMouseDown(int x, int y)
     mouseY = y;
 }
 
+void Input::OnMouseUp(int x, int y) {
+    mouseX = x;
+    mouseY = y;
+}
+
 int Input::GetMouseX() {
     return mouseX;
 }

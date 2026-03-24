@@ -1,9 +1,11 @@
 ﻿#pragma once
-#include "Graphics.h"
+#include "GeometryPass.h"
 #include "Line.h"
 
 class Rasterizer
 {
 public:
-    static void DrawLine(Graphics& gfx, const Line& line, unsigned int color);
+    static void DrawLine(GeometryPass& gpfx, const Line& line, unsigned int color);
+    static void FillPolygon(GeometryPass& gpfx, const Polygon1& poly, unsigned int color);
 };
+
