@@ -38,3 +38,4 @@ void Rasterizer::DrawLine(Graphics& gfx, const Line& line, unsigned int color)
         }
     }
 }
+

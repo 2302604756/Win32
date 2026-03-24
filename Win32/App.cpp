@@ -1,9 +1,11 @@
 ﻿#include "App.h"
 
 App::App()
-    : wnd(*this, 800, 600, L"My Engine"),
-    gfx(wnd.GetHWND(), wnd.GetWidth(), wnd.GetHeight())
+    : gfx(wnd.GetHWND(), wnd.GetWidth(), wnd.GetHeight()),
+    wnd(*this, 800, 600, L"My Engine")
+    
 {
+
 }
 
 bool App::IsRunning() const
@@ -22,6 +24,7 @@ void App::Update()
     if (input.KeyIsPressed(VK_LBUTTON))
     {
         draw.AddPoint(input.GetMouseX(), input.GetMouseY());
+        
     }
 }
 

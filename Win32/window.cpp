@@ -39,14 +39,14 @@ HWND Window::GetHWND() const
 int Window::GetWidth() const
 {
     RECT rect;
-    GetWindowRect(hwnd, &rect);
+    GetClientRect(hwnd, &rect);
     return rect.right - rect.left;
 }
 
 int Window::GetHeight() const
 {
     RECT rect;
-    GetWindowRect(hwnd, &rect);
+    GetClientRect(hwnd, &rect);
     return rect.bottom - rect.top;
 }
 

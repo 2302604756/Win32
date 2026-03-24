@@ -1,9 +1,12 @@
 ﻿#include "DrawSystem.h"
 #include "Rasterizer.h"
 
+#include <iostream>
+
 void DrawSystem::AddPoint(int x, int y)
 {
     points.push_back({ x, y });
+    std::cout << x <<" " << y << std::endl;
 }
 
 void DrawSystem::Draw(Graphics& gfx)

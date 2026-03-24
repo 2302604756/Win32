@@ -7,6 +7,7 @@ class Window
 {
 public:
     Window(App& app, int width, int height, const wchar_t* name);
+  
     ~Window();
 
     bool ProcessMessages();
